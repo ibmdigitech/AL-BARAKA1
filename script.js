@@ -128,4 +128,77 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Form Validation
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            
+            let isValid = true;
+            const requiredElements = form.querySelectorAll('[required]');
+            
+            requiredElements.forEach(el => {
+                if (!el.value.trim()) {
+                    isValid = false;
+                    el.style.borderColor = 'red';
+                } else if (el.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value)) {
+                    isValid = false;
+                    el.style.borderColor = 'red';
+                } else {
+                    el.style.borderColor = 'var(--glass-border)';
+                }
+            });
+
+            if (isValid) {
+                const btn = form.querySelector('button[type="submit"]');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = 'SENDING... <i class="fas fa-spinner fa-spin"></i>';
+                btn.disabled = true;
+
+                // Create success message element if it doesn't exist
+                let msgDiv = form.querySelector('.submit-msg');
+                if (!msgDiv) {
+                    msgDiv = document.createElement('div');
+                    msgDiv.className = 'submit-msg';
+                    msgDiv.style.marginTop = '1rem';
+                    msgDiv.style.padding = '1rem';
+                    msgDiv.style.borderRadius = '8px';
+                    msgDiv.style.fontWeight = '600';
+                    msgDiv.style.textAlign = 'center';
+                    form.appendChild(msgDiv);
+                }
+                msgDiv.style.display = 'none';
+
+                // Simulate API Call
+                setTimeout(() => {
+                    btn.innerHTML = 'SENT <i class="fas fa-check"></i>';
+                    
+                    msgDiv.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! Your request has been received. Our team will contact you shortly.';
+                    msgDiv.style.background = 'rgba(37, 211, 102, 0.1)';
+                    msgDiv.style.color = '#25D366';
+                    msgDiv.style.border = '1px solid #25D366';
+                    msgDiv.style.display = 'block';
+
+                    form.reset();
+                    
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.disabled = false;
+                        msgDiv.style.display = 'none';
+                    }, 5000);
+                }, 1500);
+            }
+        });
+
+        // Remove red border on input
+        form.querySelectorAll('input, textarea, select').forEach(el => {
+            el.addEventListener('input', () => {
+                el.style.borderColor = 'var(--glass-border)';
+            });
+            el.addEventListener('change', () => {
+                el.style.borderColor = 'var(--glass-border)';
+            });
+        });
+    });
+
 });

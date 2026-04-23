@@ -276,6 +276,7 @@ nav.scrolled {
     z-index: 10; 
     max-width: 800px;
     padding-top: 140px;
+    padding-bottom: 60px;
 }
 
 .hero-tagline {
@@ -313,7 +314,8 @@ nav.scrolled {
 
 .counter-grid {
     display: flex;
-    gap: 6rem;
+    gap: 3rem;
+    justify-content: space-between;
 }
 
 .counter-item {
@@ -591,7 +593,7 @@ nav.scrolled {
 }
 
 /* --- Contact Form Polish --- */
-#contact input, #contact textarea {
+#contact input, #contact textarea, #contact select {
     width: 100%;
     padding: 1.2rem 0;
     font-size: 1rem;
@@ -604,7 +606,12 @@ nav.scrolled {
     outline: none;
 }
 
-#contact input:focus, #contact textarea:focus {
+#contact select option {
+    background: var(--bg-accent);
+    color: #fff;
+}
+
+#contact input:focus, #contact textarea:focus, #contact select:focus {
     border-color: var(--accent-gold);
 }
 
