@@ -1,0 +1,17 @@
+{
+  "skill_name": "al-barakah-web-manager",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Add a new service to the services page for 'Logistics & Warehousing'. Use a truck icon and describe it as 'Comprehensive industrial logistics solutions across the UAE.' Ensure it matches the premium card style.",
+      "expected_output": "A new .premium-card at the end of the grid in services.html with the correct icon and text, matching existing styles.",
+      "files": ["services.html", "style.css"]
+    },
+    {
+      "id": 2,
+      "prompt": "Change the primary accent color of the website from the current light blue to a more vibrant cyan (#00F2FF) in the CSS variables. Update all gradients to reflect this change.",
+      "expected_output": "CSS variable --primary-alt updated in style.css, and gradients in .btn-primary and .text-gradient updated accordingly.",
+      "files": ["style.css"]
+    }
+  ]
+}
