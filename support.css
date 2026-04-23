@@ -123,3 +123,17 @@
             color: var(--text-dim);
             font-size: 0.8rem;
         }
+        @media (max-width: 968px) {
+            .grid[style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+            }
+            .feature-row { grid-template-columns: 1fr !important; gap: 2rem; }
+        }
+        @media (max-width: 768px) {
+            .page-hero { height: 50vh; min-height: 350px; }
+            .page-hero-content { padding: 3rem 0 2rem; }
+            .footer-grid { grid-template-columns: 1fr !important; gap: 3rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .support-card { padding: 2rem; }
+            .feature-row { gap: 2rem; }
+        }
