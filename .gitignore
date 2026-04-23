@@ -1,0 +1,14 @@
+# Large files
+*.pdf
+
+# Node modules (if any)
+node_modules/
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# IDE files
+.vscode/
+.idea/
