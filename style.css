@@ -199,14 +199,36 @@ nav.scrolled {
 }
 
 .logo-container {
-    background: #fff;
-    padding: 12px 24px;
-    border-radius: 12px;
+    background: #ffffff;
+    padding: 10px 22px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.3);
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.logo-container::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%; width: 50%; height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.8), transparent);
+    transform: skewX(-25deg);
+    transition: 0.5s;
+}
+
+.logo-container:hover::after {
+    left: 150%;
+}
+
+.logo-container:hover {
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+    border-color: var(--accent-gold);
+    transform: translateY(-2px);
 }
 
 .logo-container img {
