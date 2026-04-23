@@ -74,9 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Intersection Observer for Reveal Animations
+    const isMobile = window.innerWidth <= 768;
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
+        threshold: isMobile ? 0.05 : 0.1,
+        rootMargin: isMobile ? '0px 0px -20px 0px' : '0px 0px -100px 0px'
     };
 
     const revealObserver = new IntersectionObserver((entries) => {
@@ -202,3 +203,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('nav-active');
+            const icon = menuToggle.querySelector('i');
+            if (navLinks.classList.contains('nav-active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
+

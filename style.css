@@ -585,6 +585,8 @@ nav.scrolled {
     100% { transform: scale(0.9); opacity: 0.5; }
 }
 
+.menu-toggle { display: none; }
+
 /* --- Responsive Updates --- */
 @media (max-width: 1024px) {
     .container { padding: 0 2rem; }
@@ -603,25 +605,55 @@ nav.scrolled {
     #contact .premium-card > div:last-child {
         border-radius: 0 0 24px 24px !important;
     }
+    .menu-toggle {
+        display: block !important;
+        font-size: 1.8rem;
+        color: var(--accent-gold);
+        cursor: pointer;
+        z-index: 1000;
+    }
     .nav-links {
-        display: none; /* Hide on mobile to prevent overlap */
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: rgba(5, 10, 20, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 3rem 2rem;
+        gap: 2rem;
+        text-align: center;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        border-bottom: 1px solid var(--glass-border);
+    }
+    .nav-links.nav-active {
+        display: flex !important;
+        animation: slideDown 0.4s ease forwards;
+    }
+    .nav-content .btn-primary {
+        display: none;
+    }
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 }
 
 @media (max-width: 768px) {
-    .heading-xl { font-size: 3.5rem; }
-    .heading-lg { font-size: 2.2rem; }
-    .section-padding { padding: 80px 0; }
-    .grid-5, .grid-4 {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+    .heading-xl { font-size: 2.5rem; }
+    .heading-lg { font-size: 2rem; }
+    .section-padding { padding: 60px 0; }
+    .grid-5, .grid-4, .grid-3, .grid-2 {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
     }
     .hero {
-        padding: 120px 0 80px;
+        padding: 100px 0 60px;
         height: auto;
     }
     .hero-content {
-        padding-top: 0;
+        padding-top: 2rem;
     }
 }
 
@@ -745,3 +777,4 @@ footer ul li a:hover {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
+
