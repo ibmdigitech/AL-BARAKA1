@@ -283,10 +283,41 @@
     .office-block { padding: 1.5rem !important; }
     .mission-block { padding: 1.5rem !important; }
 
-    /* Inline style grid gaps */
-    [style*="gap: 6rem"],
-    [style*="gap:6rem"] {
-        gap: 2rem !important;
+    /* About Section (Home) */
+    #about .grid,
+    #equipment .grid,
+    .section-padding .grid[style*="grid-template-columns: 1fr 1.2fr"],
+    .section-padding .grid[style*="grid-template-columns: 1.2fr 1fr"] {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 4rem !important;
+    }
+
+    #about div[style*="position: relative"] {
+        margin-bottom: 4rem !important;
+    }
+
+    #about div[style*="position: absolute"] {
+        position: relative !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        margin: -40px auto 0 !important;
+        width: fit-content !important;
+        padding: 1.5rem 2.5rem !important;
+        text-align: center !important;
+        z-index: 10 !important;
+    }
+
+    #about .reveal-right {
+        text-align: center !important;
+    }
+
+    #about .tagline {
+        justify-content: center !important;
+    }
+
+    #about .heading-lg br {
+        display: none !important;
     }
 
     /* WhatsApp button smaller on mobile */
