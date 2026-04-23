@@ -126,6 +126,13 @@
 
     footer ul {
         justify-content: center !important;
+        justify-items: center !important;
+        text-align: center !important;
+        padding: 0 !important;
+    }
+
+    footer ul li {
+        text-align: center !important;
     }
 
     footer .social-links,
