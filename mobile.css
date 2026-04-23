@@ -249,6 +249,71 @@
         padding: 80px 0 50px !important;
     }
 
+    /* About Section (Home) */
+    #about .grid,
+    #equipment .grid,
+    .section-padding .grid[style*="grid-template-columns: 1fr 1.2fr"],
+    .section-padding .grid[style*="grid-template-columns: 1.2fr 1fr"],
+    .section-padding .grid[style*="grid-template-columns:1fr 1fr"],
+    .section-padding .grid[style*="grid-template-columns: 1fr 1fr"] {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 3.5rem !important;
+    }
+
+    #about div[style*="position: relative"] {
+        margin-bottom: 2rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    #about div[style*="position: absolute"] {
+        position: static !important;
+        margin: 2rem auto !important;
+        width: fit-content !important;
+        padding: 1.5rem 2.5rem !important;
+        text-align: center !important;
+        z-index: 10 !important;
+    }
+
+    #about .reveal-right {
+        text-align: center !important;
+        margin-top: 2rem !important;
+    }
+
+    #about .grid > div {
+        text-align: center !important;
+    }
+
+    #about div[style*="grid-template-columns:repeat(3,1fr)"] {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    .stat-badge {
+        padding: 1.5rem !important;
+        background: var(--bg-accent) !important;
+        border-radius: 16px !important;
+    }
+
+    .mission-block {
+        text-align: center !important;
+        padding: 2rem !important;
+        margin-top: 3rem !important;
+    }
+
+    .numbered-list li {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 1.5rem !important;
+    }
+
+    .team-img-wrap {
+        margin: 2rem 0 !important;
+    }
+
     /* Stat badges */
     .stat-badge .num { font-size: 2rem !important; }
     .stat-number { font-size: 2.2rem !important; }
@@ -283,48 +348,10 @@
     .office-block { padding: 1.5rem !important; }
     .mission-block { padding: 1.5rem !important; }
 
-    /* About Section (Home) */
-    #about .grid,
-    #equipment .grid,
-    .section-padding .grid[style*="grid-template-columns: 1fr 1.2fr"],
-    .section-padding .grid[style*="grid-template-columns: 1.2fr 1fr"],
-    .section-padding .grid[style*="grid-template-columns:1fr 1fr"],
-    .section-padding .grid[style*="grid-template-columns: 1fr 1fr"] {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 3.5rem !important;
-    }
-
-    #about .grid > div {
-        text-align: center !important;
-    }
-
-    #about div[style*="grid-template-columns:repeat(3,1fr)"] {
-        grid-template-columns: 1fr !important;
-        gap: 1.5rem !important;
-    }
-
-    .stat-badge {
-        padding: 1.5rem !important;
-        background: var(--bg-accent) !important;
-        border-radius: 16px !important;
-    }
-
-    .mission-block {
-        text-align: center !important;
-        padding: 2rem !important;
-        margin-top: 3rem !important;
-    }
-
-    .numbered-list li {
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
-        gap: 1.5rem !important;
-    }
-
-    .team-img-wrap {
-        margin: 2rem 0 !important;
+    /* Inline style grid gaps */
+    [style*="gap: 6rem"],
+    [style*="gap:6rem"] {
+        gap: 2rem !important;
     }
 
     /* WhatsApp button smaller on mobile */
