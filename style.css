@@ -217,7 +217,7 @@ nav.scrolled {
 
 .nav-links { 
     display: flex; 
-    gap: 3rem; 
+    gap: 1.5rem; 
     list-style: none; 
     align-items: center;
     margin: 0;
@@ -236,8 +236,19 @@ nav.scrolled {
 }
 
 .nav-links a:hover, .nav-links a.active { 
-    color: var(--accent-gold); 
+    color: var(--accent-gold) !important; 
     opacity: 1;
+    position: relative;
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-gold);
 }
 
 /* --- Hero --- */
