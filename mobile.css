@@ -105,14 +105,44 @@
     }
 
     /* Footer */
-    .footer-grid {
+    .footer-grid, 
+    footer .grid {
         grid-template-columns: 1fr !important;
-        gap: 2.5rem !important;
+        gap: 3rem !important;
+        text-align: center !important;
     }
+    
+    footer .grid > div {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    footer .logo-container {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    footer ul {
+        justify-content: center !important;
+    }
+
+    footer .social-links,
+    footer div[style*="display: flex; gap: 15px;"] {
+        justify-content: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
     .footer-bottom {
         flex-direction: column !important;
         gap: 1rem !important;
         text-align: center !important;
+    }
+
+    footer {
+        padding: 60px 0 40px !important;
     }
 
     /* Stat badges */

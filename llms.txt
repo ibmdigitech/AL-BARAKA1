@@ -1,0 +1,46 @@
+# Al Baraka Diyar Project Support FZE LLC
+
+> UAE-based industrial project support company providing comprehensive solutions for construction, solar, and industrial operations across UAE, Qatar, and KSA since 2011.
+
+## Company Overview
+Al Baraka Diyar Project Support FZE LLC is a premier industrial project support solutions provider headquartered in Musaffah Industrial Zone, Abu Dhabi, United Arab Emirates. Established in 2011, the company delivers end-to-end project support services across the GCC region including UAE, Qatar, and the Kingdom of Saudi Arabia.
+
+## Core Services
+- **Equipment Rental**: Heavy and light equipment rental including excavators, loaders, cranes, boom lifts, forklifts, and compactors for construction and industrial projects.
+- **Heavy Transport & Logistics**: Specialized heavy-duty transport solutions with low-bed trailers, flatbed trucks, and escort vehicles for oversized cargo movement.
+- **General Transport**: Fleet management covering site buses, pickup trucks, water tankers, and fuel tankers for daily site operations.
+- **Manpower Supply**: Skilled and semi-skilled labor supply including site engineers, supervisors, welders, electricians, riggers, scaffolders, and general laborers.
+- **Porta Cabin Solutions**: Modular portable cabin manufacturing and rental for site offices, accommodation, mess halls, and ablution units.
+- **Material Trading**: Industrial material procurement and supply including steel, cement, aggregates, pipes, fittings, and construction consumables.
+- **Site Support Packages**: Comprehensive site mobilization and demobilization packages combining multiple services for turnkey project support.
+
+## Key Statistics
+- 1200+ Projects Completed
+- 850+ Clients Served  
+- 500+ Asset Fleet
+- 15+ Years of Experience
+- Operations across 3 GCC Countries
+
+## Industries Served
+- Oil & Gas
+- Construction & Infrastructure
+- Solar Energy & Renewable Power
+- Industrial Manufacturing
+- Civil Engineering
+- Marine & Offshore
+
+## Contact Information
+- **Phone**: +971 2 555 9000 | +971 4 888 7777
+- **Email**: info.ab@albarakahuae.com | projects@albarakahuae.com
+- **Head Office**: Plot No. 44, Musaffah Industrial Zone, Abu Dhabi, UAE
+- **Dubai Branch**: DIC Industrial Park, Box 2301, Dubai, UAE
+- **Working Hours**: Mon–Sat: 8:00 AM – 6:00 PM | Emergency: 24/7
+- **Website**: https://ibmdigitech.github.io/AL-BARAKA1/
+
+## Pages
+- [Home](https://ibmdigitech.github.io/AL-BARAKA1/index.html): Main landing page with company overview, services, equipment fleet, and contact form.
+- [Corporate Profile](https://ibmdigitech.github.io/AL-BARAKA1/about.html): Detailed company history, vision, mission, leadership team, and core values.
+- [Services](https://ibmdigitech.github.io/AL-BARAKA1/services.html): Complete breakdown of all industrial services offered with detailed descriptions.
+- [Projects](https://ibmdigitech.github.io/AL-BARAKA1/projects.html): Portfolio of completed and ongoing projects across GCC with case studies.
+- [Project Support](https://ibmdigitech.github.io/AL-BARAKA1/support.html): Site mobilization, manpower deployment, porta cabin infrastructure, and civil support details.
+- [Contact](https://ibmdigitech.github.io/AL-BARAKA1/contact.html): Contact form, office locations, phone numbers, email addresses, and Google Maps location.
