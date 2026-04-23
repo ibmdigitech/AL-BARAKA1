@@ -1,0 +1,200 @@
+.page-hero {
+            height: 60vh;
+            min-height: 480px;
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero img.hero-bg {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            filter: brightness(0.45) contrast(1.1);
+        }
+        .page-hero .hero-overlay {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(5,12,23,0.92) 0%, rgba(10,35,63,0.5) 100%);
+            z-index: 1;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 10;
+            padding: 5rem 0 4rem;
+        }
+        .page-hero-content .tagline {
+            color: var(--accent-gold);
+            font-weight: 800;
+            letter-spacing: 5px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .page-hero-content .tagline::before {
+            content: '';
+            width: 40px;
+            height: 2px;
+            background: var(--accent-gold);
+        }
+        .project-card {
+            background: var(--bg-accent);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+            height: 100%;
+        }
+        .project-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+        .project-card-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        .project-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .project-card:hover .project-card-img img {
+            transform: scale(1.1);
+        }
+        .project-card-body {
+            padding: 2.5rem;
+        }
+        .project-category {
+            display: inline-block;
+            background: rgba(197, 160, 89, 0.15);
+            color: var(--accent-gold);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .project-card-body h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            line-height: 1.3;
+        }
+        .project-card-body p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        .project-meta {
+            display: flex;
+            gap: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--glass-border);
+        }
+        .project-meta span {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .project-meta i {
+            color: var(--accent-gold);
+            font-size: 0.7rem;
+        }
+        .filter-bar {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 4rem;
+        }
+        .filter-btn {
+            padding: 0.8rem 2rem;
+            background: var(--bg-accent);
+            border: 1px solid var(--glass-border);
+            color: var(--text-dim);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Outfit', sans-serif;
+            text-transform: uppercase;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--accent-gold);
+            color: #fff;
+            border-color: var(--accent-gold);
+        }
+        .stats-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, rgba(10,35,63,0.9) 100%);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 5rem 0;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--accent-gold);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .stat-label {
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        .page-footer-section {
+            background: var(--bg-accent);
+            padding: 80px 0 40px;
+            border-top: 1px solid var(--glass-border);
+        }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 6rem; margin-bottom: 5rem; }
+        .footer-logo-wrap {
+            background: #fff;
+            padding: 12px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+        .footer-logo-wrap img { height: 45px; display: block; }
+        .footer-col h5 {
+            color: var(--accent-gold);
+            letter-spacing: 2px;
+            font-weight: 800;
+            margin-bottom: 1.8rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+        .footer-col ul { list-style: none; display: grid; gap: 0.8rem; }
+        .footer-col ul li a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        .footer-col ul li a:hover { color: var(--accent-gold); padding-left: 8px; }
+        .footer-bottom {
+            border-top: 1px solid var(--glass-border);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+        }

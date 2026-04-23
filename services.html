@@ -10,139 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <style>
-        .page-hero {
-            height: 60vh;
-            min-height: 480px;
-            display: flex;
-            align-items: flex-end;
-            position: relative;
-            overflow: hidden;
-        }
-        .page-hero img.hero-bg {
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%;
-            object-fit: cover;
-            filter: brightness(0.45) contrast(1.1);
-        }
-        .page-hero .hero-overlay {
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: linear-gradient(135deg, rgba(5,12,23,0.92) 0%, rgba(10,35,63,0.5) 100%);
-            z-index: 1;
-        }
-        .page-hero-content {
-            position: relative;
-            z-index: 10;
-            padding: 5rem 0 4rem;
-        }
-        .page-hero-content .tagline {
-            color: var(--accent-gold);
-            font-weight: 800;
-            letter-spacing: 5px;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .page-hero-content .tagline::before {
-            content: '';
-            width: 40px;
-            height: 2px;
-            background: var(--accent-gold);
-        }
-        .service-card {
-            background: var(--bg-accent);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: var(--transition);
-        }
-        .service-card:hover {
-            border-color: var(--accent-gold);
-            transform: translateY(-8px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-        }
-        .service-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-        .service-card-body { padding: 2.5rem; }
-        .service-card-body h3 {
-            color: var(--accent-gold);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-        .service-card-body p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.5rem; }
-        .service-card-body ul { list-style: none; display: grid; gap: 0.6rem; }
-        .service-card-body ul li { display: flex; align-items: center; gap: 10px; font-size: 0.88rem; color: var(--text-dim); }
-        .service-card-body ul li i { color: var(--accent-gold); font-size: 0.7rem; }
-        .process-step {
-            display: flex;
-            gap: 2rem;
-            align-items: flex-start;
-            padding: 2.5rem;
-            background: var(--bg-accent);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            transition: var(--transition);
-        }
-        .process-step:hover { border-color: var(--accent-gold); }
-        .process-num {
-            min-width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent-gold), #a07a30);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 900;
-            font-size: 1.1rem;
-            color: #fff;
-        }
-        .page-footer-section {
-            background: var(--bg-accent);
-            padding: 80px 0 40px;
-            border-top: 1px solid var(--glass-border);
-        }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 6rem; margin-bottom: 5rem; }
-        .footer-logo-wrap {
-            background: #fff;
-            padding: 12px 20px;
-            border-radius: 10px;
-            display: inline-block;
-            margin-bottom: 1.5rem;
-        }
-        .footer-logo-wrap img { height: 45px; display: block; }
-        .footer-col h5 {
-            color: var(--accent-gold);
-            letter-spacing: 2px;
-            font-weight: 800;
-            margin-bottom: 1.8rem;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-        }
-        .footer-col ul { list-style: none; display: grid; gap: 0.8rem; }
-        .footer-col ul li a {
-            color: var(--text-dim);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-        .footer-col ul li a:hover { color: var(--accent-gold); padding-left: 8px; }
-        .footer-bottom {
-            border-top: 1px solid var(--glass-border);
-            padding-top: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: var(--text-dim);
-            font-size: 0.8rem;
-        }
-    </style>
+    <link rel="stylesheet" href="services.css">
 </head>
 <body>
 
@@ -377,5 +245,8 @@
     <a href="https://wa.me/97125559000" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script src="script.js"></script>
+    <script src="services.js"></script>
 </body>
 </html>
+
+
