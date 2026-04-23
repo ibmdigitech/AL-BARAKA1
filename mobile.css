@@ -67,30 +67,71 @@
     /* Page Hero - all inner pages */
     .page-hero {
         height: auto !important;
-        min-height: 320px !important;
+        min-height: 400px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 80px 0 !important;
     }
     .page-hero-content {
-        padding: 3rem 0 2rem !important;
+        padding: 2rem 0 !important;
+        width: 100% !important;
+    }
+    .page-hero-content .reveal-up {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
     }
 
     /* Index Hero */
     .hero {
-        padding: 100px 0 40px !important;
-        min-height: auto !important;
+        padding: 120px 0 60px !important;
+        min-height: 100vh !important;
         height: auto !important;
+        display: flex !important;
+        align-items: center !important;
+        text-align: center !important;
     }
     .hero-content {
-        padding-top: 1rem !important;
-        padding-bottom: 2rem !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    .hero-content .reveal-up {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    .hero-tagline {
+        justify-content: center !important;
+        margin-bottom: 1.5rem !important;
+    }
+    .hero-desc {
+        max-width: 100% !important;
+        margin: 1.5rem auto 2.5rem !important;
     }
     .hero-btns {
         flex-direction: column !important;
-        gap: 1rem !important;
-        align-items: flex-start !important;
+        gap: 1.2rem !important;
+        align-items: center !important;
+        width: 100% !important;
     }
     .hero-btns .btn {
         width: 100% !important;
+        max-width: 300px !important;
         text-align: center !important;
+        justify-content: center !important;
+    }
+
+    /* Backgrounds */
+    .hero-bg, .page-hero-bg, .parallax-bg {
+        background-attachment: scroll !important;
+        background-position: center center !important;
+        background-size: cover !important;
     }
 
     /* Counters */
