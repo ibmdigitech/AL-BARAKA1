@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Portfolio | Al Baraka Diyar Project Support FZE LLC</title>
+    <meta name="description" content="Explore Al Baraka Diyar's portfolio of completed industrial projects across UAE, Qatar, and KSA. Over 500+ successful project deployments since 2011.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="projects.css">
+    <link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    <div id="scroll-progress"></div>
+
+    <!-- Navigation -->
+    <nav class="scrolled">
+        <div class="container nav-content">
+            <a href="index.html" class="logo-container">
+                <img loading="lazy" src="assets/images/logo_final.png" alt="Al Baraka Diyar Logo">
+            </a>
+            <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html">Corporate</a></li><li><a href="services.html">Services</a></li><li><a href="projects.html" class="active">Projects</a></li><li><a href="support.html">Support</a></li><li><a href="contact.html">Contact</a></li></ul>
+            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+            <a href="contact.html" class="btn btn-primary" style="padding:0.8rem 2.5rem;font-size:0.8rem;">GET A PROPOSAL</a>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <img loading="lazy" class="hero-bg" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2000&auto=format&fit=crop" alt="Al Baraka Diyar Projects">
+        <div class="hero-overlay"></div>
+        <div class="container page-hero-content">
+            <div class="tagline">PROJECT PORTFOLIO</div>
+            <h1 class="heading-xl">Industrial Excellence <br><span class="text-gold">In Action.</span></h1>
+            <p style="color:var(--text-dim);max-width:600px;margin-top:1rem;font-size:1rem;line-height:1.8;">Over 500+ successful industrial projects delivered across UAE, Qatar, and KSA. Showcasing our commitment to precision and reliability.</p>
+        </div>
+    </section>
+
+    <!-- Stats Banner -->
+    <section class="stats-banner">
+        <div class="container">
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:3rem;">
+                <div class="stat-item reveal-up">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Projects Done</div>
+                </div>
+                <div class="stat-item reveal-up">
+                    <div class="stat-number">13+</div>
+                    <div class="stat-label">Years Active</div>
+                </div>
+                <div class="stat-item reveal-up">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">GCC Countries</div>
+                </div>
+                <div class="stat-item reveal-up">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <div class="tagline">OUR WORK</div>
+                <h2 class="heading-lg">Featured Project <br>Deployments.</h2>
+            </div>
+
+            <!-- Filter Bar -->
+            <div class="filter-bar reveal-up">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="equipment">Equipment Rental</button>
+                <button class="filter-btn" data-filter="transport">Transport</button>
+                <button class="filter-btn" data-filter="manpower">Manpower</button>
+                <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-3" style="gap:2.5rem;">
+                <!-- Project 1 -->
+                <div class="project-card reveal-up" data-category="equipment">
+                    <div class="project-card-img">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1579224422998-e79c29afcf8f?q=80&w=800&auto=format&fit=crop" alt="Solar Power Plant - Abu Dhabi">
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-category">Equipment Rental</span>
+                        <h3>2GW Solar Power Plant Deployment</h3>
+                        <p>Provided 45+ heavy machinery units including cranes, excavators, and loaders for UAE's largest solar power installation project.</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Abu Dhabi, UAE</span>
+                            <span><i class="fas fa-calendar"></i> 2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card reveal-up" data-category="infrastructure">
+                    <div class="project-card-img">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1502429892517-e160e183765e?q=80&w=800&auto=format&fit=crop" alt="Dubai Metro Extension">
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-category">Infrastructure</span>
+                        <h3>Dubai Metro Extension Phase 3</h3>
+                        <p>Complete site support with 200+ skilled manpower and portable cabin infrastructure for the 15km metro line extension project.</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Dubai, UAE</span>
+                            <span><i class="fas fa-calendar"></i> 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card reveal-up" data-category="transport">
+                    <div class="project-card-img">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=800&auto=format&fit=crop" alt="Qatar Industrial Zone">
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-category">Transport</span>
+                        <h3>Qatar Industrial Zone Logistics</h3>
+                        <p>Heavy haulage and cross-border transport solutions for 80+ oversized industrial components across Qatar's new industrial hub.</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Doha, Qatar</span>
+                            <span><i class="fas fa-calendar"></i> 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card reveal-up" data-category="manpower">
+                    <div class="project-card-img">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=800&auto=format&fit=crop" alt="KSA Refinery Project">
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-category">Manpower Supply</span>
+                        <h3>KSA Refinery Expansion Project</h3>
+                        <p>Deployed 350+ certified technicians, welders, and safety officers for the massive refinery expansion in Eastern Province.</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Dammam, KSA</span>
+                            <span><i class="fas fa-calendar"></i> 2023-2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card reveal-up" data-category="equipment">
+                    <div class="project-card-img">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1512428559083-a40056da160d?q=80&w=800&auto=format&fit=crop" alt="Abu Dhabi Airport Expansion">
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-category">Equipment Rental</span>
+                        <h3>Abu Dhabi Airport Expansion</h3>
+                        <p>Supplied specialized earthmoving fleet and aerial work platforms for the terminal expansion and runway upgrade project.</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Abu Dhabi, UAE</span>
+                            <span><i class="fas fa-calendar"></i> 2023</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card reveal-up" data-category="infrastructure">
+                    <div class="project-card-img">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1590576402603-9ff7ab59a4f4?q=80&w=800&auto=format&fit=crop" alt="Musaffah Industrial City">
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-category">Infrastructure</span>
+                        <h3>Musaffah Industrial City Development</h3>
+                        <p>End-to-end project support including portable cabins, equipment, and 150+ workforce for the industrial city expansion.</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Abu Dhabi, UAE</span>
+                            <span><i class="fas fa-calendar"></i> 2022-2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="padding:80px 0;background:linear-gradient(135deg,var(--primary) 0%,rgba(10,35,63,0.9) 100%);border-top:1px solid var(--glass-border);">
+        <div class="container" style="text-align:center;">
+            <div class="reveal-up">
+                <div class="tagline" style="color:var(--accent-gold);font-weight:800;letter-spacing:5px;font-size:0.8rem;margin-bottom:1.5rem;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:15px;">START YOUR PROJECT</div>
+                <h2 class="heading-lg">Ready to Join Our <br>Success Stories?</h2>
+                <p style="color:var(--text-dim);margin:2rem auto 3rem;max-width:600px;font-size:1rem;line-height:1.8;">Partner with Al Baraka Diyar and experience the same level of excellence that 500+ projects have trusted since 2011.</p>
+                <a href="contact.html" class="btn btn-primary">DISCUSS YOUR PROJECT <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer-section">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo-wrap"><img loading="lazy" src="assets/images/logo_final.png" alt="Al Baraka Diyar Logo"></div>
+                    <h4 class="text-gold" style="margin-bottom:1rem;font-size:0.9rem;">AL BARAKA DIYAR PROJECT SUPPORT FZE LLC</h4>
+                    <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.8;max-width:320px;">Delivering industrial excellence in project support, logistics, and equipment across UAE, Qatar, and KSA since 2011.</p>
+                    <div style="display:flex;gap:1rem;margin-top:2rem;">
+                        <a href="#" class="text-gold"><i class="fab fa-linkedin-in" style="font-size:1.2rem;"></i></a>
+                        <a href="#" class="text-gold"><i class="fab fa-instagram" style="font-size:1.2rem;"></i></a>
+                        <a href="#" class="text-gold"><i class="fab fa-facebook-f" style="font-size:1.2rem;"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>QUICK LINKS</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">Corporate Profile</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>CONTACT</h5>
+                    <ul>
+                        <li><a href="tel:+97125559000"><i class="fas fa-phone" style="margin-right:8px;"></i>+971 2 555 9000</a></li>
+                        <li><a href="mailto:info.ab@albarakahuae.com"><i class="fas fa-envelope" style="margin-right:8px;"></i>info.ab@albarakahuae.com</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt" style="margin-right:8px;"></i>Musaffah, Abu Dhabi, UAE</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Al Baraka Diyar Project Support FZE LLC. All rights reserved.</span>
+                <span>UAE | Qatar | KSA</span>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/97125559000" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <script src="script.js"></script>
+    <script src="projects.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
