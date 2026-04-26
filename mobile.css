@@ -10,16 +10,7 @@
         grid-template-columns: 1fr !important;
     }
 
-    /* Form grids stack */
-    .form-grid-2 {
-        grid-template-columns: 1fr !important;
-    }
 
-    /* Feature rows stack */
-    .feature-row {
-        grid-template-columns: 1fr !important;
-        gap: 2rem !important;
-    }
 
     /* Footer grid stack */
     .footer-grid, 
