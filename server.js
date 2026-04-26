@@ -15,6 +15,24 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname)));
 
+// Redirect extensionless URLs to .html files
+app.get(['/', '/about', '/services', '/projects', '/support', '/contact'], (req, res) => {
+    const routeMap = {
+        '/': 'index.html',
+        '/about': 'about.html',
+        '/services': 'services.html',
+        '/projects': 'projects.html',
+        '/support': 'support.html',
+        '/contact': 'contact.html'
+    };
+    const file = routeMap[req.path];
+    if (file) {
+        res.sendFile(path.join(__dirname, file));
+    } else {
+        res.status(404).send('Not found');
+    }
+});
+
 // Inquiries logger
 const logInquiry = (data) => {
     try {

@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+    // Remove no-js class from HTML/body for CSS fallback
+    document.body.classList.remove('no-js');
+    document.documentElement.classList.remove('no-js');
+
     // Preloader - only if present
     const loader = document.getElementById('loader');
     if (loader) {
@@ -25,15 +28,23 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('mousemove', (e) => {
             const { clientX, clientY } = e;
 
-            cursor.animate({
-                left: `${clientX}px`,
-                top: `${clientY}px`
-            }, { duration: 100, fill: "forwards" });
+            try {
+                cursor.animate({
+                    left: `${clientX}px`,
+                    top: `${clientY}px`
+                }, { duration: 100, fill: "forwards" });
 
-            follower.animate({
-                left: `${clientX}px`,
-                top: `${clientY}px`
-            }, { duration: 500, fill: "forwards" });
+                follower.animate({
+                    left: `${clientX}px`,
+                    top: `${clientY}px`
+                }, { duration: 500, fill: "forwards" });
+            } catch (err) {
+                // Fallback: direct style update
+                cursor.style.left = clientX + 'px';
+                cursor.style.top = clientY + 'px';
+                follower.style.left = clientX + 'px';
+                follower.style.top = clientY + 'px';
+            }
         });
 
         // Magnetic Buttons & Hover Effects
@@ -64,6 +75,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 follower.style.transform = 'translate(-50%, -50%) scale(1)';
             });
         });
+    } else {
+        // Fallback: simple cursor follow without animate()
+        if (cursor && follower) {
+            document.addEventListener('mousemove', (e) => {
+                const { clientX, clientY } = e;
+                cursor.style.left = clientX + 'px';
+                cursor.style.top = clientY + 'px';
+                follower.style.left = clientX + 'px';
+                follower.style.top = clientY + 'px';
+            });
+        }
     }
 
     // Navbar Scroll & Progress bar
@@ -87,24 +109,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // Intersection Observer for Reveal Animations & Counters (only if supported)
     if (typeof IntersectionObserver !== 'undefined') {
         const isMobile = window.innerWidth <= 768;
-        const observerOptions = {
-            threshold: isMobile ? 0.05 : 0.1,
-            rootMargin: isMobile ? '0px 0px -20px 0px' : '0px 0px -100px 0px'
-        };
 
-        // Reveal Observer
+        // Reveal Observer - trigger when just 1% visible for smoother early reveal
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.01, rootMargin: '0px' });
 
-        document.querySelectorAll('.reveal-up').forEach(el => revealObserver.observe(el));
+        document.querySelectorAll('.reveal-up').forEach(el => {
+            // If already partially visible, trigger immediately
+            const rect = el.getBoundingClientRect();
+            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+            if (isVisible) {
+                el.classList.add('active');
+            } else {
+                revealObserver.observe(el);
+            }
+        });
 
-        // Counter Observer
-        const counters = document.querySelectorAll('.counter');
+        // Counter Observer - stricter threshold
         const counterObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -124,9 +151,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     counterObserver.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.5 });
 
-        counters.forEach(counter => counterObserver.observe(counter));
+        document.querySelectorAll('.counter').forEach(counter => counterObserver.observe(counter));
     } else {
         // Fallback: show all reveal-up elements immediately
         document.querySelectorAll('.reveal-up').forEach(el => el.classList.add('active'));
