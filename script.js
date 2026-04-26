@@ -1,119 +1,136 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Preloader
+    // Preloader - only if present
     const loader = document.getElementById('loader');
-    window.addEventListener('load', () => {
-        setTimeout(() => {
+    if (loader) {
+        const hideLoader = () => {
             loader.style.opacity = '0';
             setTimeout(() => loader.style.display = 'none', 500);
-        }, 1000);
-    });
+        };
+        if (document.readyState === 'complete') {
+            // Load already fired
+            hideLoader();
+        } else {
+            window.addEventListener('load', () => {
+                setTimeout(hideLoader, 1000);
+            });
+        }
+    }
 
-    // Custom Cursor
+    // Custom Cursor - only if both elements present and browser supports animate()
     const cursor = document.querySelector('.cursor');
     const follower = document.querySelector('.cursor-follower');
-    
-    document.addEventListener('mousemove', (e) => {
-        const { clientX, clientY } = e;
-        
-        cursor.animate({
-            left: `${clientX}px`,
-            top: `${clientY}px`
-        }, { duration: 100, fill: "forwards" });
+    const supportsAnimate = typeof Element !== 'undefined' && typeof Element.prototype.animate === 'function';
+    if (cursor && follower && supportsAnimate) {
+        document.addEventListener('mousemove', (e) => {
+            const { clientX, clientY } = e;
 
-        follower.animate({
-            left: `${clientX}px`,
-            top: `${clientY}px`
-        }, { duration: 500, fill: "forwards" });
-    });
+            cursor.animate({
+                left: `${clientX}px`,
+                top: `${clientY}px`
+            }, { duration: 100, fill: "forwards" });
 
-    // Magnetic Buttons & Hover Effects
-    const links = document.querySelectorAll('a, button, .premium-card, .glass-card');
-    links.forEach(link => {
-        link.addEventListener('mousemove', (e) => {
-            if (link.classList.contains('btn-primary') || link.classList.contains('btn-outline')) {
-                const rect = link.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                
-                link.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) scale(1.05)`;
-            }
+            follower.animate({
+                left: `${clientX}px`,
+                top: `${clientY}px`
+            }, { duration: 500, fill: "forwards" });
         });
 
-        link.addEventListener('mouseenter', () => {
-            cursor.style.transform = 'translate(-50%, -50%) scale(2)';
-            cursor.style.background = 'rgba(197, 160, 89, 0.1)';
-            cursor.style.borderColor = 'var(--accent-gold)';
-            follower.style.transform = 'translate(-50%, -50%) scale(0)';
+        // Magnetic Buttons & Hover Effects
+        const links = document.querySelectorAll('a, button, .premium-card, .glass-card');
+        links.forEach(link => {
+            link.addEventListener('mousemove', (e) => {
+                if (link.classList.contains('btn-primary') || link.classList.contains('btn-outline')) {
+                    const rect = link.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+
+                    link.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) scale(1.05)`;
+                }
+            });
+
+            link.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(2)';
+                cursor.style.background = 'rgba(197, 160, 89, 0.1)';
+                cursor.style.borderColor = 'var(--accent-gold)';
+                follower.style.transform = 'translate(-50%, -50%) scale(0)';
+            });
+
+            link.addEventListener('mouseleave', () => {
+                link.style.transform = '';
+                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursor.style.background = 'transparent';
+                cursor.style.borderColor = 'var(--accent-gold)';
+                follower.style.transform = 'translate(-50%, -50%) scale(1)';
+            });
         });
-        
-        link.addEventListener('mouseleave', () => {
-            link.style.transform = '';
-            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-            cursor.style.background = 'transparent';
-            cursor.style.borderColor = 'var(--accent-gold)';
-            follower.style.transform = 'translate(-50%, -50%) scale(1)';
-        });
-    });
+    }
 
     // Navbar Scroll & Progress bar
     const nav = document.querySelector('nav');
     const progressBar = document.getElementById('scroll-progress');
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
-        }
-
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        progressBar.style.width = scrolled + "%";
-    });
-
-    // Intersection Observer for Reveal Animations
-    const isMobile = window.innerWidth <= 768;
-    const observerOptions = {
-        threshold: isMobile ? 0.05 : 0.1,
-        rootMargin: isMobile ? '0px 0px -20px 0px' : '0px 0px -100px 0px'
-    };
-
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
+    if (nav && progressBar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
             }
+
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + "%";
         });
-    }, observerOptions);
+    }
 
-    document.querySelectorAll('.reveal-up').forEach(el => revealObserver.observe(el));
+    // Intersection Observer for Reveal Animations & Counters (only if supported)
+    if (typeof IntersectionObserver !== 'undefined') {
+        const isMobile = window.innerWidth <= 768;
+        const observerOptions = {
+            threshold: isMobile ? 0.05 : 0.1,
+            rootMargin: isMobile ? '0px 0px -20px 0px' : '0px 0px -100px 0px'
+        };
 
-    // Counter Animation
-    const counters = document.querySelectorAll('.counter');
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const target = parseInt(entry.target.getAttribute('data-target'));
-                let current = 0;
-                const increment = target / 100;
-                const update = () => {
-                    if (current < target) {
-                        current += increment;
-                        entry.target.innerText = Math.floor(current) + '+';
-                        requestAnimationFrame(update);
-                    } else {
-                        entry.target.innerText = target + '+';
-                    }
-                };
-                update();
-                counterObserver.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
+        // Reveal Observer
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
 
-    counters.forEach(counter => counterObserver.observe(counter));
+        document.querySelectorAll('.reveal-up').forEach(el => revealObserver.observe(el));
+
+        // Counter Observer
+        const counters = document.querySelectorAll('.counter');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseInt(entry.target.getAttribute('data-target'));
+                    let current = 0;
+                    const increment = target / 100;
+                    const update = () => {
+                        if (current < target) {
+                            current += increment;
+                            entry.target.innerText = Math.floor(current) + '+';
+                            requestAnimationFrame(update);
+                        } else {
+                            entry.target.innerText = target + '+';
+                        }
+                    };
+                    update();
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        counters.forEach(counter => counterObserver.observe(counter));
+    } else {
+        // Fallback: show all reveal-up elements immediately
+        document.querySelectorAll('.reveal-up').forEach(el => el.classList.add('active'));
+    }
 
     // Smooth Scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -152,9 +169,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (isValid) {
                 const btn = form.querySelector('button[type="submit"]');
+                if (!btn) return; // No submit button found, abort
                 const originalText = btn.innerHTML;
                 btn.innerHTML = 'SENDING... <i class="fas fa-spinner fa-spin"></i>';
                 btn.disabled = true;
+
+                // Collect form data
+                const formData = {
+                    fullName: document.getElementById('full-name').value,
+                    email: document.getElementById('contact-email').value,
+                    mobile: document.getElementById('mobile-num').value,
+                    service: document.getElementById('service-type').value,
+                    location: document.getElementById('project-location').value,
+                    duration: document.getElementById('project-duration').value,
+                    message: document.getElementById('inquiry-msg').value
+                };
 
                 // Create success message element if it doesn't exist
                 let msgDiv = form.querySelector('.submit-msg');
@@ -170,8 +199,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 msgDiv.style.display = 'none';
 
-                // Simulate API Call
-                setTimeout(() => {
+                // Real API Call to Backend
+                fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                })
+                .then(response => response.json())
+                .then(data => {
                     btn.innerHTML = 'SENT <i class="fas fa-check"></i>';
                     
                     msgDiv.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! Your request has been received. Our team will contact you shortly.';
@@ -187,7 +224,21 @@ document.addEventListener('DOMContentLoaded', () => {
                         btn.disabled = false;
                         msgDiv.style.display = 'none';
                     }, 5000);
-                }, 1500);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    btn.innerHTML = 'ERROR <i class="fas fa-times"></i>';
+                    msgDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> Failed to send request. Please try again.';
+                    msgDiv.style.background = 'rgba(255, 77, 77, 0.1)';
+                    msgDiv.style.color = '#ff4d4d';
+                    msgDiv.style.border = '1px solid #ff4d4d';
+                    msgDiv.style.display = 'block';
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.disabled = false;
+                        msgDiv.style.display = 'none';
+                    }, 5000);
+                });
             }
         });
 
