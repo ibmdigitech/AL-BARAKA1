@@ -342,7 +342,27 @@
     }
 
     /* Support cards */
-    .support-card { padding: 2rem !important; }
+    .support-card {
+        padding: 0 !important;
+        overflow: hidden !important;
+    }
+    .support-card .card-image-container {
+        height: 190px !important;
+        margin: 0 !important;
+        border-radius: 20px 20px 0 0 !important;
+    }
+    .support-card > i {
+        margin: -30px auto 1.25rem !important;
+    }
+    .support-card h3,
+    .support-card p {
+        text-align: center !important;
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+    .support-card p {
+        padding-bottom: 1.75rem !important;
+    }
 
     /* Service cards */
     .service-card img { height: 180px !important; }
