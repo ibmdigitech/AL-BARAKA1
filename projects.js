@@ -37,8 +37,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const nextBtn = document.querySelector('.carousel-control.next');
     const indicatorsContainer = document.querySelector('.carousel-indicators');
     
-    if (!carouselTrack || slides.length === 0) {
-        console.warn('Carousel not initialized - elements missing');
+    if (!carouselTrack || !slides.length || !prevBtn || !nextBtn || !indicatorsContainer) {
+        console.warn('Carousel not initialized - missing elements:', {
+            carouselTrack, slides: slides.length, prevBtn, nextBtn, indicatorsContainer
+        });
         return;
     }
     
@@ -65,8 +67,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const indicators = indicatorsContainer.querySelectorAll('.indicator');
     
     function updateCarousel(index) {
-        const offset = -(index * 100);
-        carouselTrack.style.transform = `translateX(${offset}%)`;
+        // Each slide is 100% of container width, track is totalSlides * 100% wide
+        // So movement per slide = (100 / totalSlides)%
+        const offsetPercent = -(index * (100 / totalSlides));
+        carouselTrack.style.transform = `translateX(${offsetPercent}%)`;
         
         slides.forEach(s => s.classList.remove('active'));
         slides[index].classList.add('active');
