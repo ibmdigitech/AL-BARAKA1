@@ -826,17 +826,31 @@ footer ul li a:hover {
 }
 
 /* Footer Social Icons */
-footer .text-gold i {
-    transition: var(--transition);
+footer a.text-gold {
+    width: 42px;
+    height: 42px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid rgba(197, 160, 89, 0.28);
+    border-radius: 50%;
+    background: rgba(197, 160, 89, 0.08);
+    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
 }
 
-footer .text-gold i:hover {
-    transform: translateY(-5px) scale(1.2);
-    color: var(--primary-alt) !important;
-    text-shadow: 0 0 10px rgba(165, 209, 242, 0.5);
+footer a.text-gold:hover {
+    color: #fff !important;
+    background: var(--accent-gold);
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(197, 160, 89, 0.32);
+}
+
+footer a.text-gold i {
+    transition: transform 0.25s ease;
+}
+
+footer a.text-gold:hover i {
+    transform: scale(1.12);
 }
 
 /* Gallery Section Styles */
@@ -2299,6 +2313,24 @@ footer .text-gold i:hover {
     background: linear-gradient(135deg, #1a2a42, #0F243E);
     color: var(--accent-gold);
     font-size: 1.2rem;
+}
+
+.carousel-fallback {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    gap: 0.8rem;
+    align-content: center;
+    background: linear-gradient(135deg, #1a2a42, #0F243E);
+    color: var(--accent-gold);
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.carousel-fallback i {
+    font-size: 2rem;
 }
 
 .carousel-caption {

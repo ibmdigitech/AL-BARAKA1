@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const projectCards = document.querySelectorAll('.project-card');
     
     filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
             filterButtons.forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
             
@@ -67,9 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const indicators = indicatorsContainer.querySelectorAll('.indicator');
     
     function updateCarousel(index) {
-        // Each slide is 100% of container width, track is totalSlides * 100% wide
-        // So movement per slide = (100 / totalSlides)%
-        const offsetPercent = -(index * (100 / totalSlides));
+        const offsetPercent = -(index * 100);
         carouselTrack.style.transform = `translateX(${offsetPercent}%)`;
         
         slides.forEach(s => s.classList.remove('active'));
@@ -137,6 +136,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Initialize
+    slides.forEach(slide => {
+        const image = slide.querySelector('img');
+        if (!image) return;
+        image.addEventListener('error', () => {
+            slide.classList.add('img-error');
+            image.style.display = 'none';
+            if (!slide.querySelector('.carousel-fallback')) {
+                const fallback = document.createElement('div');
+                fallback.className = 'carousel-fallback';
+                fallback.innerHTML = '<i class="fas fa-image"></i><span>Project image unavailable</span>';
+                slide.appendChild(fallback);
+            }
+        });
+    });
+
     updateCarousel(0);
     startAutoPlay();
     
