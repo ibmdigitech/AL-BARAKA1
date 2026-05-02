@@ -593,6 +593,25 @@ nav.scrolled {
     100% { transform: scale(0.9); opacity: 0.5; }
 }
 
+@keyframes bounceDown {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    60% {
+        transform: translateY(10px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.bounce-down {
+    animation: bounceDown 0.8s ease-out forwards;
+}
+
 .menu-toggle { display: none; }
 
 /* --- Responsive Updates --- */
