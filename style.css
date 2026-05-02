@@ -2290,6 +2290,22 @@ footer .text-gold i:hover {
     background: linear-gradient(135deg, #1a2a42, #0F243E);
 }
 
+/* Fallback if images fail to load */
+.carousel-slide img:empty,
+.carousel-slide img[src=""] {
+    display: none;
+}
+.carousel-slide::before {
+    content: 'Image Loading...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--accent-gold);
+    font-size: 1.2rem;
+    z-index: 1;
+}
+
 .carousel-caption {
     position: absolute;
     bottom: 0;
