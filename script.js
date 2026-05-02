@@ -181,13 +181,31 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (galleryTrack && galleryItems.length > 0 && prevButton && nextButton) {
         let currentIndex = 0;
-        const itemWidth = galleryItems[0].offsetWidth + 20; // item width + margin
-        const visibleItems = Math.floor(window.innerWidth / itemWidth);
-        const maxIndex = galleryItems.length - visibleItems;
+        let itemWidth = 0;
+        let visibleItems = 0;
+        let maxIndex = 0;
+        
+        // Update dimensions
+        const updateDimensions = () => {
+            itemWidth = galleryItems[0].offsetWidth + 20; // item width + margin
+            visibleItems = Math.floor(window.innerWidth / itemWidth);
+            maxIndex = galleryItems.length - visibleItems;
+            
+            // Ensure maxIndex is not negative
+            if (maxIndex < 0) {
+                maxIndex = 0;
+            }
+        };
         
         // Update position
         const updateGalleryPosition = () => {
             galleryTrack.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+        };
+        
+        // Initialize
+        const initGallery = () => {
+            updateDimensions();
+            updateGalleryPosition();
         };
         
         // Next button
@@ -239,20 +257,18 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Resize handling
         window.addEventListener('resize', () => {
-            const newItemWidth = galleryItems[0].offsetWidth + 20;
-            const newVisibleItems = Math.floor(window.innerWidth / newItemWidth);
-            const newMaxIndex = galleryItems.length - newVisibleItems;
+            updateDimensions();
             
             // Adjust current index if needed
-            if (currentIndex > newMaxIndex) {
-                currentIndex = newMaxIndex;
+            if (currentIndex > maxIndex) {
+                currentIndex = maxIndex;
             }
             
             updateGalleryPosition();
         });
         
-        // Initialize position
-        updateGalleryPosition();
+        // Initialize
+        initGallery();
     }
 
     // Form Validation
