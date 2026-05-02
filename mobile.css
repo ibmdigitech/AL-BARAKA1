@@ -239,8 +239,33 @@
 
     footer div[style*="display: flex; gap: 15px;"] a,
     footer div[style*="display: flex; gap: 20px;"] a {
-        display: inline-block !important;
+        display: inline-flex !important;
+        width: 42px !important;
+        height: 42px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex: 0 0 42px !important;
+        text-decoration: none !important;
+        padding-left: 0 !important;
+    }
+
+    footer a.text-gold {
+        display: inline-flex !important;
+        width: 42px !important;
+        height: 42px !important;
+        min-width: 42px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex: 0 0 42px !important;
+        text-decoration: none !important;
+        padding-left: 0 !important;
+    }
+
+    footer a.text-gold i {
+        display: inline-flex !important;
         width: auto !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
 
     .footer-bottom {

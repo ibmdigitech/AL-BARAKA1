@@ -634,12 +634,31 @@ nav.scrolled {
         border-radius: 0 0 24px 24px !important;
     }
     .menu-toggle {
-        display: block !important;
-        font-size: 1.8rem;
+        width: 46px;
+        height: 46px;
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.45rem;
         color: var(--accent-gold);
         cursor: pointer;
         z-index: 1001;
         position: relative;
+        border: 1px solid rgba(197, 160, 89, 0.35);
+        border-radius: 50%;
+        background: rgba(197, 160, 89, 0.08);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+        transition: var(--transition);
+        flex: 0 0 46px;
+    }
+    .menu-toggle i {
+        line-height: 1;
+        pointer-events: none;
+    }
+    .menu-toggle:hover {
+        color: #fff;
+        background: var(--accent-gold);
+        transform: translateY(-2px);
     }
     .nav-links {
         display: none;
