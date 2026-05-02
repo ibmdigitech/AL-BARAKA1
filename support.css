@@ -66,10 +66,12 @@
             background: var(--bg-accent);
             border: 1px solid var(--glass-border);
             border-radius: 20px;
-            padding: 3rem;
+            padding: 0;
             transition: var(--transition);
             position: relative;
-            overflow: hidden;
+            overflow: visible;
+            display: flex;
+            flex-direction: column;
         }
         .support-card::before {
             content: '';

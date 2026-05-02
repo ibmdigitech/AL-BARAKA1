@@ -38,24 +38,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const nextBtn = document.querySelector('.carousel-control.next');
     const indicatorsContainer = document.querySelector('.carousel-indicators');
     
-    if (carouselTrack && slides.length > 0) {
+    if (carouselTrack && slides.length > 0 && prevBtn && nextBtn && indicatorsContainer) {
         let currentIndex = 0;
         const totalSlides = slides.length;
         let autoPlayInterval;
         const autoPlayDelay = 5000; // 5 seconds
         
-        // Create indicators
-        slides.forEach((_, index) => {
-            const indicator = document.createElement('div');
-            indicator.classList.add('indicator');
-            if (index === 0) indicator.classList.add('active');
-            indicator.addEventListener('click', () => goToSlide(index));
-            indicatorsContainer.appendChild(indicator);
-        });
-        
-        const indicators = document.querySelectorAll('.indicator');
-        
-        // Update slide position
+        // Update slide position (define first before use)
         const updateCarousel = (index) => {
             carouselTrack.style.transform = `translateX(-${index * 100}%)`;
             
@@ -64,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
             slides[index].classList.add('active');
             
             // Update indicators
+            const indicators = document.querySelectorAll('.indicator');
             indicators.forEach(ind => ind.classList.remove('active'));
             indicators[index].classList.add('active');
         };
@@ -87,6 +77,35 @@ document.addEventListener('DOMContentLoaded', function() {
         // Auto play functionality
         const startAutoPlay = () => {
             autoPlayInterval = setInterval(nextSlide, autoPlayDelay);
+        };
+        
+        const resetAutoPlay = () => {
+            clearInterval(autoPlayInterval);
+            startAutoPlay();
+        };
+        
+        // Create indicators (after functions are defined)
+        slides.forEach((_, index) => {
+            const indicator = document.createElement('div');
+            indicator.classList.add('indicator');
+            if (index === 0) indicator.classList.add('active');
+            indicator.addEventListener('click', () => goToSlide(index));
+            indicatorsContainer.appendChild(indicator);
+        });
+        
+        const indicators = document.querySelectorAll('.indicator');
+        
+        // Update slide position
+        const updateCarousel = (index) => {
+            carouselTrack.style.transform = `translateX(-${index * 100}%)`;
+            
+            // Update active classes for animations
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+            
+            // Update indicators
+            indicators.forEach(ind => ind.classList.remove('active'));
+            indicators[index].classList.add('active');
         };
         
         const resetAutoPlay = () => {
@@ -152,5 +171,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // Initialize
         updateCarousel(0);
         startAutoPlay();
-    });
+        
+        // Ensure first slide is visible immediately
+        setTimeout(() => {
+            slides[0].classList.add('active');
+        }, 100);
+    } else {
+        console.warn('Carousel elements not found');
+    }
 });
