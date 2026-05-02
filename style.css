@@ -838,6 +838,148 @@ footer .text-gold i:hover {
     text-shadow: 0 0 10px rgba(165, 209, 242, 0.5);
 }
 
+/* Gallery Section Styles */
+.gallery-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.gallery-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
+
+.gallery-item {
+    min-width: 250px;
+    margin: 0 10px;
+    flex-shrink: 0;
+    width: calc(25% - 20px);
+    box-sizing: border-box;
+}
+
+.gallery-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(197, 160, 89, 0.2);
+    border: 1px solid var(--accent-gold);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-gold);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: var(--transition);
+    backdrop-filter: blur(5px);
+}
+
+.gallery-arrow:hover {
+    background: var(--accent-gold);
+    color: #fff;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0 15px rgba(197, 160, 89, 0.5);
+}
+
+.gallery-arrow.prev {
+    left: 10px;
+}
+
+.gallery-arrow.next {
+    right: 10px;
+}
+
+.gallery-arrow i {
+    pointer-events: none;
+}
+
+/* Responsive Gallery */
+@media (max-width: 1024px) {
+    .gallery-item {
+        width: calc(33.333% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-item {
+        width: calc(50% - 20px);
+    }
+    
+    .gallery-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-item {
+        width: calc(100% - 20px);
+    }
+    
+    .gallery-arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    footer {
+        padding: 80px 0 40px;
+    }
+    
+    footer .container {
+        padding: 0 1.5rem;
+    }
+    
+    footer .grid.grid-4 {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 2rem !important;
+        margin-bottom: 3rem !important;
+    }
+    
+    footer > .container > .grid.grid-4 > div:nth-child(1) {
+        grid-column: 1 / -1 !important;
+        margin-bottom: 2rem !important;
+    }
+    
+    footer h5 {
+        margin-bottom: 1.5rem !important;
+        font-size: 1rem !important;
+    }
+    
+    footer ul {
+        gap: 1rem !important;
+        font-size: 0.85rem !important;
+    }
+    
+    footer p {
+        font-size: 0.85rem !important;
+        line-height: 1.6 !important;
+    }
+    
+    .footer-reach {
+        grid-column: 1 / -1 !important;
+        margin-top: 1.5rem !important;
+    }
+    
+    .footer-location-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+    }
+    
+    .footer-location-card {
+        padding: 1rem !important;
+    }
+}
+
 .footer-reach {
     grid-column: 1 / -1;
     width: 100%;

@@ -173,6 +173,88 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Gallery Slider Functionality
+    const galleryTrack = document.querySelector('.gallery-track');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const prevButton = document.querySelector('.gallery-arrow.prev');
+    const nextButton = document.querySelector('.gallery-arrow.next');
+    
+    if (galleryTrack && galleryItems.length > 0 && prevButton && nextButton) {
+        let currentIndex = 0;
+        const itemWidth = galleryItems[0].offsetWidth + 20; // item width + margin
+        const visibleItems = Math.floor(window.innerWidth / itemWidth);
+        const maxIndex = galleryItems.length - visibleItems;
+        
+        // Update position
+        const updateGalleryPosition = () => {
+            galleryTrack.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+        };
+        
+        // Next button
+        nextButton.addEventListener('click', () => {
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+                updateGalleryPosition();
+            } else {
+                // Loop to beginning
+                currentIndex = 0;
+                updateGalleryPosition();
+            }
+        });
+        
+        // Previous button
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateGalleryPosition();
+            } else {
+                // Loop to end
+                currentIndex = maxIndex;
+                updateGalleryPosition();
+            }
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') {
+                if (currentIndex < maxIndex) {
+                    currentIndex++;
+                    updateGalleryPosition();
+                } else {
+                    // Loop to beginning
+                    currentIndex = 0;
+                    updateGalleryPosition();
+                }
+            } else if (e.key === 'ArrowLeft') {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateGalleryPosition();
+                } else {
+                    // Loop to end
+                    currentIndex = maxIndex;
+                    updateGalleryPosition();
+                }
+            }
+        });
+        
+        // Resize handling
+        window.addEventListener('resize', () => {
+            const newItemWidth = galleryItems[0].offsetWidth + 20;
+            const newVisibleItems = Math.floor(window.innerWidth / newItemWidth);
+            const newMaxIndex = galleryItems.length - newVisibleItems;
+            
+            // Adjust current index if needed
+            if (currentIndex > newMaxIndex) {
+                currentIndex = newMaxIndex;
+            }
+            
+            updateGalleryPosition();
+        });
+        
+        // Initialize position
+        updateGalleryPosition();
+    }
+
     // Form Validation
     const forms = document.querySelectorAll('form');
     forms.forEach(form => {
