@@ -1,14 +1,29 @@
 {
-  "worktrees": {},
+  "worktrees": {
+    "wt-1777742974378-1": {
+      "branch": "nine-tuna",
+      "path": "d:\\antigravty skills\\al barakah\\.kilo\\worktrees\\nine-tuna",
+      "parentBranch": "main",
+      "createdAt": "2026-05-02T17:29:34.378Z",
+      "remote": "origin"
+    }
+  },
   "sessions": {
     "ses_2444aa6deffeQA3pE2C7EtpuPH": {
       "worktreeId": null,
       "createdAt": "2026-04-23T18:58:37.507Z"
+    },
+    "ses_21642ee07ffelTodXgXMql2IcD": {
+      "worktreeId": "wt-1777742974378-1",
+      "createdAt": "2026-05-02T17:29:35.587Z"
     }
   },
   "tabOrder": {
     "local": [
       "pending:1"
     ]
-  }
+  },
+  "worktreeOrder": [
+    "wt-1777742974378-1"
+  ]
 }
