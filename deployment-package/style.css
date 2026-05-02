@@ -411,13 +411,14 @@ nav.scrolled {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
-    transition: 0.8s;
+    transform: translateX(-100%);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
 }
-
 .premium-card:hover {
     border-color: var(--accent-gold);
     transform: translateY(-15px) scale(1.02);
@@ -426,11 +427,7 @@ nav.scrolled {
 }
 
 .premium-card:hover::after {
-    left: 100%;
-}
-
-.premium-card:hover::after {
-    left: 100%;
+    transform: translateX(100%);
 }
 
 .premium-card i {
@@ -438,7 +435,7 @@ nav.scrolled {
     margin-bottom: 2.5rem;
     color: var(--accent-gold);
     display: block;
-    transition: transform 0.5s var(--transition);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .premium-card:hover i {

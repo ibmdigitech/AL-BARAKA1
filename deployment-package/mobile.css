@@ -190,6 +190,21 @@
         display: inline-block !important;
         margin: 0 auto 2rem !important;
         float: none !important;
+        padding: 12px 20px !important;
+        background: #fff !important;
+        border-radius: 12px !important;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15) !important;
+    }
+
+    footer .logo-container img {
+        height: 40px !important;
+        width: auto !important;
+        display: block !important;
+    }
+
+    footer [style*="grid-column: span"] {
+        grid-column: span 1 !important;
+        width: 100% !important;
     }
 
     footer h4, footer h5, footer p, footer li, footer a {
