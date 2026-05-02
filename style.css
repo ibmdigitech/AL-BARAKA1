@@ -15,6 +15,7 @@
     --primary-light: #A5D1F2;
     --bg-dark: #050C17;
     --bg-accent: #0A1424;
+    --bg-secondary: #0A1424;  /* Secondary background (same as accent) */
     --bg-light: #F8FAFC;      /* For hybrid sections */
     --text-white: #FFFFFF;
     --text-dark: #0F172A;
