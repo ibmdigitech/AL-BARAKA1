@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://ibmdigitech.github.io/AL-BARAKA1/sitemap.xml
+Sitemap: https://albarakadiyar.com/sitemap.xml
 
 User-agent: Googlebot
 Allow: /

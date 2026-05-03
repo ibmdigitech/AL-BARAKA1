@@ -35,12 +35,12 @@ Al Baraka Diyar Project Support FZE LLC is a premier industrial project support 
 - **Head Office**: Plot No. 44, Musaffah Industrial Zone, Abu Dhabi, UAE
 - **Dubai Branch**: DIC Industrial Park, Box 2301, Dubai, UAE
 - **Working Hours**: Mon–Sat: 8:00 AM – 6:00 PM | Emergency: 24/7
-- **Website**: https://ibmdigitech.github.io/AL-BARAKA1/
+- **Website**: https://albarakadiyar.com/
 
 ## Pages
-- [Home](https://ibmdigitech.github.io/AL-BARAKA1/index.html): Main landing page with company overview, services, equipment fleet, and contact form.
-- [Corporate Profile](https://ibmdigitech.github.io/AL-BARAKA1/about.html): Detailed company history, vision, mission, leadership team, and core values.
-- [Services](https://ibmdigitech.github.io/AL-BARAKA1/services.html): Complete breakdown of all industrial services offered with detailed descriptions.
-- [Projects](https://ibmdigitech.github.io/AL-BARAKA1/projects.html): Portfolio of completed and ongoing projects across GCC with case studies.
-- [Project Support](https://ibmdigitech.github.io/AL-BARAKA1/support.html): Site mobilization, manpower deployment, porta cabin infrastructure, and civil support details.
-- [Contact](https://ibmdigitech.github.io/AL-BARAKA1/contact.html): Contact form, office locations, phone numbers, email addresses, and Google Maps location.
+- [Home](https://albarakadiyar.com/index.html): Main landing page with company overview, services, equipment fleet, and contact form.
+- [Corporate Profile](https://albarakadiyar.com/about.html): Detailed company history, vision, mission, leadership team, and core values.
+- [Services](https://albarakadiyar.com/services.html): Complete breakdown of all industrial services offered with detailed descriptions.
+- [Projects](https://albarakadiyar.com/projects.html): Portfolio of completed and ongoing projects across GCC with case studies.
+- [Project Support](https://albarakadiyar.com/support.html): Site mobilization, manpower deployment, porta cabin infrastructure, and civil support details.
+- [Contact](https://albarakadiyar.com/contact.html): Contact form, office locations, phone numbers, email addresses, and Google Maps location.
