@@ -1613,6 +1613,37 @@ footer a.text-gold:hover i {
     }
 }
 
+@media (max-width: 480px) {
+    .client-carousel {
+        margin: 0 -1rem;
+        border-radius: 12px;
+    }
+
+    .client-track {
+        gap: 2px;
+    }
+
+    .client-item {
+        width: 130px;
+        min-height: 110px;
+        padding: 1rem 0.7rem;
+        gap: 0.6rem;
+    }
+
+    .client-item img {
+        width: 38px;
+        height: 38px;
+        padding: 0.4rem;
+        border-radius: 10px;
+    }
+
+    .client-label {
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+        line-height: 1.3;
+    }
+}
+
 /* === Card Image Container Fix === */
 .card-image-container {
     height: 250px;
