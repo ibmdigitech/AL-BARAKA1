@@ -45,7 +45,7 @@
     font-family: Outfit, sans-serif;
 }
 
-body {
+html, body {
     background-color: var(--bg-dark);
     color: var(--text-white);
     line-height: 1.5;
@@ -237,13 +237,13 @@ nav.scrolled {
 
 .logo-container {
     background: #fff;
-    padding: 10px 22px;
-    border-radius: 14px;
+    padding: 6px 16px; /* Reduced padding for a sleeker look */
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 20px rgb(212 175 55 / 15%);
-    border: 1px solid rgb(212 175 55 / 30%);
+    box-shadow: 0 4px 15px rgb(212 175 55 / 10%);
+    border: 1px solid rgb(212 175 55 / 20%);
     transition: var(--transition);
     position: relative;
     overflow: hidden;
@@ -272,7 +272,7 @@ nav.scrolled {
 }
 
 .logo-container img {
-    height: 45px;
+    height: 38px; /* Slightly smaller to balance with the nav links */
     width: auto;
     display: block;
 }
@@ -571,7 +571,7 @@ nav.scrolled {
 /* --- WhatsApp Button --- */
 .whatsapp-btn {
     position: fixed;
-    bottom: 40px;
+    bottom: 80px; /* Moved up to avoid footer overlap */
     right: 40px;
     width: 60px;
     height: 60px;
@@ -1592,7 +1592,7 @@ footer a.text-gold:hover i {
 
 .whatsapp-btn {
     position: fixed;
-    bottom: 30px;
+    bottom: 80px; /* Moved up to avoid footer overlap */
     right: 30px;
     background: #25D366;
     color: #fff;
