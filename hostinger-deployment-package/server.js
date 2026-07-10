@@ -1,0 +1,150 @@
+const express = require('express');
+const path = require('path');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const nodemailer = require('nodemailer');
+const fs = require('fs');
+const rateLimit = require('express-rate-limit');
+const helmet = require('helmet');
+require('dotenv').config();
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Middleware
+app.use(helmet({
+    contentSecurityPolicy: false, // Disable if using many external CDNs, or configure properly
+}));
+app.use(cors());
+app.use(bodyParser.json({ limit: '10kb' }));
+app.use(bodyParser.urlencoded({ extended: true, limit: '10kb' }));
+
+// Security: Block sensitive files and only allow specific extensions
+app.use((req, res, next) => {
+    const forbiddenFiles = ['server.js', '.env', 'inquiries.log', 'package.json', 'package-lock.json'];
+    const fileName = path.basename(req.path);
+    const ext = path.extname(req.path).toLowerCase();
+    const allowedExt = ['.html', '.css', '.js', '.webp', '.jpg', '.png', '.svg', '.xml', '.txt', ''];
+
+    if (forbiddenFiles.includes(fileName) || !allowedExt.includes(ext)) {
+        return res.status(403).send('Access Denied');
+    }
+    next();
+});
+app.use(express.static(path.join(__dirname)));
+
+// Redirect extensionless URLs to .html files
+app.get(['/', '/about', '/services', '/projects', '/support', '/contact'], (req, res) => {
+    const routeMap = {
+        '/': 'index.html',
+        '/about': 'about.html',
+        '/services': 'services.html',
+        '/projects': 'projects.html',
+        '/support': 'support.html',
+        '/contact': 'contact.html'
+    };
+    const file = routeMap[req.path];
+    if (file) {
+        res.sendFile(path.join(__dirname, file));
+    } else {
+        res.status(404).send('Not found');
+    }
+});
+
+// Rate limiting for contact API to prevent spam
+const contactLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 5, // Limit each IP to 5 inquiries per window
+    message: { success: false, message: 'Too many inquiries from this IP, please try again later.' }
+});
+
+// Inquiries logger
+const logInquiry = (data) => {
+    try {
+        const logEntry = `[${new Date().toISOString()}] Inquiry: ${JSON.stringify(data)}\n`;
+        fs.appendFileSync(path.join(__dirname, 'inquiries.log'), logEntry);
+    } catch (err) {
+        console.error('Failed to write to inquiries.log:', err.message);
+    }
+};
+
+// API Endpoint for Contact Form
+app.post('/api/contact', contactLimiter, async (req, res) => {
+    const { fullName, email, mobile, service, location, duration, message } = req.body;
+
+    console.log('Received inquiry:', req.body);
+    logInquiry(req.body);
+
+    // Nodemailer setup
+    // Using a Ethereal (test) account if no env vars provided
+    let transporter;
+
+    if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+        transporter = nodemailer.createTransport({
+            service: process.env.EMAIL_SERVICE || 'gmail',
+            auth: {
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS
+            }
+        });
+    } else {
+        // Fallback or Test account
+        transporter = nodemailer.createTransport({
+            host: 'smtp.ethereal.email',
+            port: 587,
+            secure: false,
+            auth: {
+                user: 'test@ethereal.email',
+                pass: 'testpass'
+            }
+        });
+    }
+
+    const mailOptions = {
+        from: `"Al Baraka Web Portal" <${process.env.EMAIL_USER || 'noreply@albarakaservices.com'}>`,
+        to: process.env.CONTACT_RECEIVER || 'info.ab@albarakaservices.com',
+        subject: `New Project Inquiry from ${fullName}`,
+        text: `
+            New Inquiry Received:
+            
+            Name/Company: ${fullName}
+            Email: ${email}
+            Mobile: ${mobile}
+            Service: ${service}
+            Location: ${location}
+            Duration: ${duration}
+            Requirements: ${message}
+        `,
+        html: `
+            <h3>New Inquiry Received</h3>
+            <p><strong>Name/Company:</strong> ${fullName}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Mobile:</strong> ${mobile}</p>
+            <p><strong>Service:</strong> ${service}</p>
+            <p><strong>Location:</strong> ${location}</p>
+            <p><strong>Duration:</strong> ${duration}</p>
+            <p><strong>Requirements:</strong></p>
+            <p>${message}</p>
+        `
+    };
+
+    try {
+        // For demonstration/testing, we'll always succeed unless explicitly failed
+        // In real scenario, we wait for transporter.sendMail(mailOptions);
+
+        if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+            await transporter.sendMail(mailOptions);
+        } else {
+            console.log('Email simulated (No credentials provided). Check inquiries.log');
+        }
+
+        res.status(200).json({ success: true, message: 'Inquiry received successfully!' });
+    } catch (error) {
+        console.error('Error sending email:', error);
+        res.status(500).json({ success: false, message: 'Failed to send inquiry.' });
+    }
+});
+
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});

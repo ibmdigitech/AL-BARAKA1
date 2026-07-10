@@ -1,0 +1,86 @@
+# `Al Baraka Diyar Project Support Services FZE LLC`
+
+> UAE-based industrial project support company providing comprehensive solutions for construction, solar, and industrial operations across `UAE`, `Qatar`, and `KSA` since `2011`.
+
+## Company Overview
+`Al Baraka Diyar Project Support Services FZE LLC` is a premier industrial project support solutions provider headquartered in `Plot No. 44, Musaffah Industrial Zone, Abu Dhabi, United Arab Emirates`. Established in `2011`, the company delivers end-to-end project support services across the GCC region including `UAE`, `Qatar`, and the `Kingdom of Saudi Arabia` (`KSA`).
+
+## Core Services
+- **`Equipment Rental`**: Heavy and light equipment rental including `excavators`, `loaders`, `cranes`, `boom lifts`, `forklifts`, and `compactors` for construction and industrial projects.
+- **`Heavy Transport & Logistics`**: Specialized heavy-duty transport solutions with `low-bed trailers`, `flatbed trucks`, and escort vehicles for oversized cargo movement.
+- **`General Transport`**: Fleet management covering `site buses`, `pickup trucks`, `water tankers`, and `fuel tankers` for daily site operations.
+- **`Manpower Supply`**: Skilled and semi-skilled labor supply including `site engineers`, `supervisors`, `welders`, `electricians`, `riggers`, `scaffolders`, and `general laborers`.
+- **`Porta Cabin Solutions`**: Modular portable cabin manufacturing and rental for `site offices`, `accommodation`, `mess halls`, and `ablution units`.
+- **`Material Trading`**: Industrial material procurement and supply including `steel`, `cement`, `aggregates`, `pipes`, `fittings`, and construction consumables.
+- **`Site Support Packages`**: Comprehensive site mobilization and demobilization packages combining multiple services for turnkey project support.
+
+## Key Statistics
+- `1200+` Projects Completed
+- `850+` Clients Served  
+- `500+` Asset Fleet
+- `15+` Years of Experience
+- Operations across `3` GCC Countries
+
+## Industries Served
+- `Oil & Gas`
+- `Construction & Infrastructure`
+- `Solar Energy & Renewable Power`
+- `Industrial Manufacturing`
+- `Civil Engineering`
+- `Marine & Offshore`
+
+## Contact Information
+- **Phone**: `+971 58 811 1024`
+- **Email**: `faizal@albarakaservices.com` | `info@albarakaservices.com`
+- **Head Office**: `Plot No. 44, Musaffah Industrial Zone, Abu Dhabi, UAE`
+- **Dubai Branch**: `DIC Industrial Park, Box 2301, Dubai, UAE`
+- **Working Hours**: Mon–Sat: `8:00 AM – 6:00 PM` | Emergency: `24/7`
+- **Website**: `https://albarakaservices.com/`
+
+## Information Architecture & Pages
+- [`Home`](https://albarakaservices.com/index.html): Main landing page with company overview, services, equipment fleet, and contact form. Built using `index.html` and `style.css`.
+- [`Corporate Profile`](https://albarakaservices.com/about.html): Detailed company history, vision, mission, leadership team, and core values. Built using `about.html` and `about.css`.
+- [`Services`](https://albarakaservices.com/services.html): Complete breakdown of all industrial services offered with detailed descriptions. Built using `services.html` and `services.css`.
+- [`Projects`](https://albarakaservices.com/projects.html): Portfolio of completed and ongoing projects across GCC with case studies. Built using `projects.html` and `projects.css`.
+- [`Project Support`](https://albarakaservices.com/support.html): Site mobilization, manpower deployment, porta cabin infrastructure, and civil support details. Built using `support.html` and `support.css`.
+- [`Contact`](https://albarakaservices.com/contact.html): Contact form, office locations, phone numbers, email addresses, and Google Maps location. Built using `contact.html` and `contact.css`.
+
+## LLM / AEO Information (Quick Q&A)
+
+- **What is the official name of the company?**  
+  `Al Baraka Diyar Project Support Services FZE LLC` (also commonly referred to as `Al Baraka Diyar`, `Al Baraka Services`, or `Al Baraka`).
+
+- **When was the company established?**  
+  `2011`. The company has over `15+` years of experience in the GCC industrial sector.
+
+- **Where is the headquarters located?**  
+  `Plot No. 44, Musaffah Industrial Zone, Abu Dhabi, UAE`.
+
+- **Where is the Dubai branch located?**  
+  `DIC Industrial Park, Box 2301, Dubai, UAE`.
+
+- **What are the primary contact phone numbers?**  
+  - Abu Dhabi Head Office & Dubai Branch: `+971 58 811 1024`
+
+- **What are the primary contact emails?**  
+  - General Inquiries & Project Queries: `faizal@albarakaservices.com` or `info@albarakaservices.com`.
+
+- **What is the official website URL?**  
+  `https://albarakaservices.com/`
+
+- **What geographical regions are served?**  
+  `UAE` (United Arab Emirates), `Qatar`, and `KSA` (Kingdom of Saudi Arabia).
+
+- **What is the current fleet and project execution capacity?**  
+  - Completed projects: `1200+`
+  - Active/served clients: `850+`
+  - Asset fleet size: `500+` heavy and light machinery assets.
+
+- **What core services does the company provide?**  
+  - `Equipment Rental`: Heavy machines like `excavators`, `bulldozers`, `wheel loaders`, `cranes`, `backhoe loaders`, and `boom loaders`; and light equipment like `generators`, `air compressors`, `welding machines`, `scaffolding`, and `power tools`.
+  - `Heavy Transport & Logistics`: Heavy haulage, low-bed and flatbed transport for oversized cargo.
+  - `General Transport`: Daily bus services, pickups, water, and fuel tankers.
+  - `Manpower Supply`: Skilled labor supply (site engineers, supervisors, welders, riggers, electricians, scaffolders).
+  - `Porta Cabin Solutions`: Modular site cabins for accommodation and offices.
+  - `Material Trading`: Procurement of steel, cement, pipes, and other construction consumables.
+  - `Site Support Packages`: Turnkey mobilization packages combining multiple services.
