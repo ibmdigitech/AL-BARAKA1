@@ -277,6 +277,10 @@ document.addEventListener('DOMContentLoaded', () => {
         form.addEventListener('submit', function (e) {
             e.preventDefault();
             
+            // Clear previous states
+            const formWrapper = form.closest('.form-wrapper') || form;
+            formWrapper.classList.remove('form-success', 'form-failed');
+
             let isValid = true;
             const requiredElements = form.querySelectorAll('[required]');
             
@@ -320,6 +324,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     msgDiv.style.borderRadius = '8px';
                     msgDiv.style.fontWeight = '600';
                     msgDiv.style.textAlign = 'center';
+                    msgDiv.setAttribute('role', 'status');
+                    msgDiv.setAttribute('aria-live', 'polite');
                     form.appendChild(msgDiv);
                 }
                 msgDiv.style.display = 'none';
@@ -332,48 +338,88 @@ document.addEventListener('DOMContentLoaded', () => {
                     },
                     body: JSON.stringify(formData)
                 })
-                .then(response => response.json())
+                .then(async response => {
+                    // Parse response body safely
+                    let data;
+                    try {
+                        data = await response.json();
+                    } catch (err) {
+                        data = { success: false, message: 'Invalid server response' };
+                    }
+
+                    if (!response.ok || data.success === false) {
+                        // Server-side failure (includes authentication failures)
+                        const errMsg = data && data.message ? data.message : 'Failed to send inquiry.';
+                        throw new Error(errMsg);
+                    }
+
+                    // Success path
+                    return data;
+                })
                 .then(data => {
                     btn.innerHTML = 'SENT <i class="fas fa-check"></i>';
-                    
+
                     msgDiv.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! Your request has been received. Our team will contact you shortly.';
-                    msgDiv.style.background = 'rgba(37, 211, 102, 0.1)';
+                    msgDiv.style.background = 'rgba(37, 211, 102, 0.08)';
                     msgDiv.style.color = '#25D366';
                     msgDiv.style.border = '1px solid #25D366';
                     msgDiv.style.display = 'block';
 
+                    // Visual success state on form wrapper
+                    formWrapper.classList.remove('form-failed');
+                    formWrapper.classList.add('form-success');
+
                     form.reset();
-                    
+
                     setTimeout(() => {
                         btn.innerHTML = originalText;
                         btn.disabled = false;
                         msgDiv.style.display = 'none';
+                        formWrapper.classList.remove('form-success');
                     }, 5000);
                 })
                 .catch(error => {
-                    console.error('Error:', error);
+                    console.error('Contact send error:', error);
                     btn.innerHTML = 'ERROR <i class="fas fa-times"></i>';
-                    msgDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> Failed to send request. Please try again.';
-                    msgDiv.style.background = 'rgba(255, 77, 77, 0.1)';
+
+                    const userMessage = (error && error.message) ? error.message : 'Failed to send request. Please try again.';
+                    msgDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + userMessage;
+                    msgDiv.style.background = 'rgba(255, 77, 77, 0.08)';
                     msgDiv.style.color = '#ff4d4d';
                     msgDiv.style.border = '1px solid #ff4d4d';
                     msgDiv.style.display = 'block';
+
+                    // Visual failure state on form wrapper
+                    formWrapper.classList.remove('form-success');
+                    formWrapper.classList.add('form-failed');
+
+                    // If it looks like an auth error, highlight the form/tab in a stronger way
+                    if (/auth|authentication|failed|invalid/i.test(error.message || '')) {
+                        // Add a stronger style to indicate authentication failure
+                        formWrapper.classList.add('form-auth-failed');
+                    }
+
                     setTimeout(() => {
                         btn.innerHTML = originalText;
                         btn.disabled = false;
                         msgDiv.style.display = 'none';
+                        formWrapper.classList.remove('form-failed', 'form-auth-failed');
                     }, 5000);
                 });
             }
         });
 
-        // Remove red border on input
+        // Remove red border on input and clear form states
         form.querySelectorAll('input, textarea, select').forEach(el => {
             el.addEventListener('input', () => {
                 el.style.borderColor = 'var(--glass-border)';
+                const formWrapper = form.closest('.form-wrapper') || form;
+                formWrapper.classList.remove('form-failed', 'form-auth-failed', 'form-success');
             });
             el.addEventListener('change', () => {
                 el.style.borderColor = 'var(--glass-border)';
+                const formWrapper = form.closest('.form-wrapper') || form;
+                formWrapper.classList.remove('form-failed', 'form-auth-failed', 'form-success');
             });
         });
     });
@@ -405,4 +451,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
-
