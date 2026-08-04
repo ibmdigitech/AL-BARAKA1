@@ -57,8 +57,9 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 40px 80px rgb(0 0 0 / 50%);
+            height: 450px;
         }
-        .feature-img img { width: 100%; display: block; }
+        .feature-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
         .skill-tag {
             background: var(--bg-accent);
@@ -95,9 +96,8 @@
             position: absolute;
             top: 0; left: 0;
             width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-gold), rgb(197 160 89 / 0%));
-            transition: var(--transition);
+            height: 0;
+            background: transparent;
             z-index: 2;
         }
 
@@ -106,8 +106,9 @@
             margin: 0 !important;
             border-radius: 20px 20px 0 0;
             overflow: hidden;
-            background: var(--bg-secondary);
+            background: transparent;
             flex: 0 0 auto;
+            aspect-ratio: auto;
         }
 
         .support-card .card-image-container img {

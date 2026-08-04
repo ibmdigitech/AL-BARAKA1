@@ -545,6 +545,8 @@ nav.scrolled {
     border: 1px solid var(--accent-gold);
     border-radius: 50%;
     position: fixed;
+    top: -100px;
+    left: -100px;
     pointer-events: none;
     z-index: 10000;
     transition: 0.1s;
@@ -557,6 +559,8 @@ nav.scrolled {
     background: var(--accent-gold);
     border-radius: 50%;
     position: fixed;
+    top: -100px;
+    left: -100px;
     pointer-events: none;
     z-index: 10000;
     transform: translate(-50%, -50%);
