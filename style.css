@@ -2358,6 +2358,7 @@ footer a.text-gold:hover i {
     display: flex;
     flex-direction: column;
     min-height: 0;
+    height: 100%;
     background: linear-gradient(180deg, rgb(10 20 36 / 78%), rgb(10 20 36 / 94%));
 }
 
@@ -2420,6 +2421,27 @@ footer a.text-gold:hover i {
     .why-card p {
         margin-bottom: 1.5rem;
     }
+}
+
+/* === Material Trading Card Layout Fix === */
+#trading .premium-card {
+    padding: 0 !important;
+}
+
+#trading .premium-card .card-image-container {
+    margin: -3.5rem -3rem 2rem;
+}
+
+#trading .premium-card > i {
+    margin: 0 3rem 1rem !important;
+}
+
+#trading .premium-card > h5 {
+    margin: 0 3rem 1rem !important;
+}
+
+#trading .premium-card:last-child {
+    padding: 3.5rem 3rem !important;
 }
 
 /* === Final Contact Alignment Override === */
